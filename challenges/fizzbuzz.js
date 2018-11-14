@@ -33,4 +33,16 @@ function fizzbuzz(num) {
     return final;
 }
 
+// For fun:
+// Create a fizzbuz generator that takes an array of divisor:code pairs
+
+function fizzbuzz2(goal, ...nums) {
+    // Expected input: [20, 3, "fizz", 5, "buzz"]
+    let divisors = [];
+    for (let i = 0; i < nums.length; i+=2) {
+        let output = "";
+        
+    }
+}
+
 module.exports = fizzbuzz;
