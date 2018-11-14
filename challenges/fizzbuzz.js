@@ -19,7 +19,7 @@
 
 function fizzbuzz(num) {
     let result = [];
-    for(var i=1; i<=num; i++) {
+    for(let i=1; i<=num; i++) {
         if(i%3 === 0 && i%5 === 0) {
             result.push("fizzbuzz");
         } else if(i%3 === 0) {
@@ -32,7 +32,5 @@ function fizzbuzz(num) {
     }
     return result;
 }
-
-console.log(fizzbuzz(16));
 
 module.exports = fizzbuzz;
