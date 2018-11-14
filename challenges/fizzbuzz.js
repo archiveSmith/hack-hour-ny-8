@@ -17,7 +17,20 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+    // Multiple of 3 fizz
+    // Multiple of 5 buzz
+    // Multiple of both 3 and 5, fizzbuzz
+    let final = [];
+    for (let i = 1; i <= num; i++) {
+        let output = "";
+        // Adjust output based on fizzbuzz rules
+        if (i % 3 === 0) output += "fizz";
+        if (i % 5 === 0) output += "buzz";
+        // Either push number or output depending on if output exists
+        if (output === "") final.push(i);
+        else final.push(output);
+    }
+    return final;
 }
 
 module.exports = fizzbuzz;
