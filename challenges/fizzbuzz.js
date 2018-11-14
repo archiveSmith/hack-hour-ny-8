@@ -18,16 +18,16 @@
 
 function fizzbuzz(num) {
   let array = [];
-  for (let i = 0; i < num.length; i++) {
-    if (num[i] % 3 === 0 && num[i] % 5 === 0) {
+  for (let i = 1; i <= num; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
       array.push("fizzbuzz");
     } else {
-      if (num[i] % 3 === 0) {
+      if (i % 3 === 0) {
         array.push("fizz");
       } else {
-        if (num[i] % 5 === 0) {
+        if (i % 5 === 0) {
           array.push("buzz");
-        } else array.push(num[i]);
+        } else array.push(i);
       }
     }
   }
