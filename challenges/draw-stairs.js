@@ -13,9 +13,20 @@
 
 */
 
-function drawStairs(n) {
-
-}
-
+function drawStairs(size) {
+    for (let level = 1; level <= size; level++) {
+        let output = "";
+        let stars = size-level;
+        for (let blanks = 0; blanks < stars; blanks++) {
+            output += " ";
+        }
+        for (stars; stars < size; stars++) {
+            output += "*";
+        }
+        console.log(output);
+    }
+};
 
 module.exports = drawStairs;
+
+drawStairs(5);
