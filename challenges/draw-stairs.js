@@ -17,6 +17,8 @@ function drawStairs(n) {
     if(n > 100 || n < 1) {
         throw new Exception ("The number is either too big or too small");
     }
+    
+    let result = "";
 
     for(let i=0; i<n; i++) {
         let j = 0;
@@ -27,9 +29,19 @@ function drawStairs(n) {
         for(let k=j; k<n; k++) {
             pr += "*";
         }
-        console.log(pr);
+        pr += "\n";
+        result += pr;
     }
+    
+    console.log(result);
 }
+
+// drawStairs(6);
+// drawStairs(3);
+// console.log("\n\n\n");
+// drawStairs(8);
+// console.log("\n\n\n");
+// drawStairs(1);
 
 
 
