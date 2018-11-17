@@ -11,9 +11,10 @@
 
 
 function modemean(array) {
-  let counterObj = {};
-  let sum = 0;
-  let mode = array[0];
+  if (array.length === 0) return "array must be populated";
+    let counterObj = {};
+    let sum = 0;
+    let mode = array[0];
   for (var i = 0; i < array.length; i++) {
     sum += array[i];
     if (counterObj[array[i]] === undefined) {
@@ -29,9 +30,8 @@ function modemean(array) {
       mode = k;
     }
   }
-  let avg = sum / array.length;
-  return avg === mode;
-
+  let avg = Math.floor(sum / array.length);
+  return avg === Number(mode);
 }
 
 module.exports = modemean;
