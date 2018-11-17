@@ -36,13 +36,6 @@ function drawStairs(n) {
     console.log(result);
 }
 
-// drawStairs(6);
-// drawStairs(3);
-// console.log("\n\n\n");
-// drawStairs(8);
-// console.log("\n\n\n");
-// drawStairs(1);
-
 
 
 module.exports = drawStairs;
