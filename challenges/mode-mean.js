@@ -11,6 +11,26 @@
 
 
 function modemean(array) {
+  let counterObj = {};
+  let sum = 0;
+  let mode = array[0];
+  for (var i = 0; i < array.length; i++) {
+    sum += array[i];
+    if (counterObj[array[i]] === undefined) {
+      counterObj[array[i]] = 1;
+    } else {
+      counterObj[array[i]]++;
+    }
+  }
+  for (var k in counterObj) {
+    if (counterObj[k] > counterObj[mode]) {
+      mode = k;
+    } else if (counterObj[k] === counterObj[mode] && k > mode) {
+      mode = k;
+    }
+  }
+  let avg = sum / array.length;
+  return avg === mode;
 
 }
 
