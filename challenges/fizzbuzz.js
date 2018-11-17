@@ -17,7 +17,32 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+    // Multiple of 3 fizz
+    // Multiple of 5 buzz
+    // Multiple of both 3 and 5, fizzbuzz
+    let final = [];
+    for (let i = 1; i <= num; i++) {
+        let output = "";
+        // Adjust output based on fizzbuzz rules
+        if (i % 3 === 0) output += "fizz";
+        if (i % 5 === 0) output += "buzz";
+        // Either push number or output depending on if output exists
+        if (output === "") final.push(i);
+        else final.push(output);
+    }
+    return final;
 }
+
+// Trying for fun:
+// Create a fizzbuz generator that takes an array of divisor:code pairs
+
+// function fizzbuzz2(goal, ...nums) {
+//     // Expected input: [20, 3, "fizz", 5, "buzz"]
+//     // let final = [];
+//     for (let i = 0; i < nums.length; i+=2) {
+//         let output = "";
+
+//     }
+// }
 
 module.exports = fizzbuzz;
