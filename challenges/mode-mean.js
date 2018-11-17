@@ -33,13 +33,11 @@ function modemean(array) {
         }
     }
 
-    if(mode === mean) {
+    if(parseInt(mode) === mean) {
         return true;
     } else {
         return false;
     }
 }
-
-// console.log(modemean([1,1,1]));
 
 module.exports = modemean;
