@@ -16,8 +16,22 @@
 //                     'fizzbuzz',
 //                     16 ]
 
-function fizzbuzz(num) {
+function fizzbuzz(num, i = 1) {
+  let result = [];
+  let pushItem = '';
+  if (i % 3 === 0) {
+    pushItem += 'fizz';
+  }
+  if (i % 5 === 0) {
+    pushItem += 'buzz';
+  }
+  result.push(pushItem || i);
+  if (i === num) {
+    return result;
+  }
+  result = result.concat(fizzbuzz(num, i+1));
 
+  return result;
 }
 
 module.exports = fizzbuzz;

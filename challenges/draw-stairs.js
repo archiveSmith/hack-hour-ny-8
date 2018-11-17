@@ -1,9 +1,9 @@
 /* Write a function that console logs a staircase of any given height where 1 <= N <= 100.
  The staircase must climb up from left to right. The last line should only consist of asterisks,
  without any leading/trailing spaces.
- 
- For example:     
- drawStairs(6) ->          
+
+ For example:
+ drawStairs(6) ->
      *
     **
    ***
@@ -13,7 +13,13 @@
 
 */
 
-function drawStairs(n) {
+function drawStairs(n, x = 1) {
+  if (x === n) {
+    console.log('*'.repeat(n));
+    return;
+  }
+  console.log(' '.repeat(n - x - 1), '*'.repeat(x));
+  drawStairs(n,x+1);
 
 }
 
