@@ -28,5 +28,3 @@ function drawStairs(size) {
 };
 
 module.exports = drawStairs;
-
-drawStairs(5);
