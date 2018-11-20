@@ -10,7 +10,7 @@
  */
 
 
-function modeMean(array){
+function modemean(array){
   const cache = { 
     mode: { value: -Infinity, length: 1 },
     mean: { value: -Infinity, sum: 0 }
