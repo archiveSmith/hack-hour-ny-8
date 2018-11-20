@@ -10,7 +10,7 @@
  */
 
 
-function modemean(array){
+function modeMean(array){
   const cache = { 
     mode: { value: -Infinity, length: 1 },
     mean: { value: -Infinity, sum: 0 }
@@ -22,7 +22,9 @@ function modemean(array){
     mean.value = Math.floor(mean.sum / (i + 1));
     if (value in cache) {
       cache[value].push(i);
-      if (cache[value].length >= mode.length && value >= mode.value) {
+      if (cache[value].length > mode.length || 
+          cache[value].length === mode.length 
+          && value >= mode.value){
         mode.value = value;
         mode.length = cache[value].length;
       }
@@ -33,7 +35,9 @@ function modemean(array){
       }
     }
   }
+  console.log(cache)
   return cache.mode.value === cache.mean.value;
 }
+
 
 module.exports = modemean;
