@@ -35,7 +35,6 @@ function modeMean(array){
       }
     }
   }
-  console.log(cache)
   return cache.mode.value === cache.mean.value;
 }
 
