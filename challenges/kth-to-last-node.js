@@ -21,8 +21,44 @@ function Node(val) {
   this.next = null;
 }
 
+// Node.prototype.add = function(value) {
+//   let current = this;
+//   while (current.next !== null) {
+//     current = current.next;
+//   }
+//
+//   current.next = new Node(value);
+// }
+//
+// const myList = new Node(1);
+// myList.add(2)
+// myList.add(3)
+// myList.add(4)
+// myList.add(5)
+// myList.add(6)
+// myList.add(7)
+// console.log(myList)
+
+
 function kthToLastNode(k, head) {
 
+  let obj = [];
+  let count = 0;
+
+  let current = head;
+  while (current !== null) {
+    obj.push(current.value);
+    count++
+    current = current.next
+  }
+
+  let index = obj.length - (k - 1)
+  return obj[index]
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+// console.log('k====', kthToLastNode(3, myList))
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+module.exports = {
+  Node: Node,
+  kthToLastNode: kthToLastNode
+};
