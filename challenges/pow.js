@@ -2,8 +2,15 @@
  * Use recursion!
  */
 
-function pow(base, power) {
+function pow(base, power, beencalled, multiplier) {
+  if (beencalled === undefined) {
+    return pow(base * base, power - 1, true, base)
+  }
+  if (power === 1) return base;
 
+  return pow(base * multiplier, power - 1, true, multiplier)
 }
+
+// console.log(pow(5, 2))
 
 module.exports = pow;
