@@ -29,7 +29,6 @@ function kthToLastNode(k, head) {
     current = current.next;
   }
   return queue[queue.length-k];
-  // 
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
