@@ -29,12 +29,11 @@ function Node(val) {
 //
 //   current.next = new Node(value);
 // }
-//
-// const myList = new Node(1);
-// myList.add(2)
-// myList.add(3)
-// myList.add(4)
-// myList.add(5)
+// const myList = new Node('a');
+// myList.add('b')
+// myList.add('c')
+// myList.add('d')
+// myList.add('e')
 // myList.add(6)
 // myList.add(7)
 // console.log(myList)
@@ -52,11 +51,12 @@ function kthToLastNode(k, head) {
     current = current.next
   }
 
-  let index = obj.length - (k - 1)
+  let index = obj.length - k
   return obj[index]
 }
 
-// console.log('k====', kthToLastNode(3, myList))
+// console.log(myList)
+// console.log('k====', kthToLastNode(2, myList))
 // let arr = [1, 2, 3, 4, 5, 6, 7, 8];
 module.exports = {
   Node: Node,
