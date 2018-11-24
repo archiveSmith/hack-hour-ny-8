@@ -17,7 +17,7 @@ function pow(base, power, beencalled, multiplier) {
   return pow(base * multiplier, power - 1, true, multiplier)
 }
 
-console.log(pow(5, -2))
+// console.log(pow(5, -10))
 
 
 
