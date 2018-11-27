@@ -25,6 +25,38 @@
  */
 
 function balancedParens(input){
+    let arr = input.split('');
+    let answer = true;
+    let lastIncre = 0;
+    let prevIncre = 0;
+
+    let obj = {
+        '(': 2,
+        ')': -2,
+        '{': 5,
+        '}': -5,
+        '[': 7,
+        ']': -7
+    }
+
+    let count = arr.reduce((acc, char) => {
+        if(obj[char]) {
+            acc = acc + obj[char];
+            lastIncre = obj[char];
+        }
+        
+        if (acc % 2 !== 1) {
+          answer = false;
+        }
+
+        if (acc < 0) {
+          answer = false;
+        }
+
+        return acc;
+    }, 0)
+
+    return count === 0 && answer ; 
 
 }
 
