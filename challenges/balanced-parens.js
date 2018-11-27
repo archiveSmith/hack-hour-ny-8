@@ -24,7 +24,7 @@
  *
  */
 
-let cache = {};
+let stack = [];
 
 function balancedParens(input){
     let openBrackets = ['(', '[', '{'];
@@ -33,29 +33,25 @@ function balancedParens(input){
     for(let i=0; i<input.length; i++) {
         let tmp = openBrackets.indexOf(input[i]);
         if(tmp !== -1) {
-            if(!cache[tmp]) {
-                cache[tmp] = 1;
-            } else {
-                cache[tmp]++;
-            }
+            stack.push(tmp);
         } else {
             let closeTmp = closeBrackets.indexOf(input[i]);
             if(closeTmp !== -1) {
-                if(!cache[closeTmp]) {
+                if(stack.pop() !== closeTmp) {
                     return false;
-                } else {
-                    cache[closeTmp]--;
                 }
             }
         }
     }
-
-    for(let key in cache) {
-        if(cache[key] > 0) {
-            return false;
-        }
+    if(stack.length === 0) {
+        return true;
+    } else {
+        return false;
     }
-    return true;
 }
+
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
+console.log(balancedParens('[(]{)}'));
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();'));
 
 module.exports = balancedParens;
