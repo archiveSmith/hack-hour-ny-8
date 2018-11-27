@@ -18,7 +18,7 @@ function isSubstring(s1, s2) {
 
 
 function stringRotation(s1, s2, arr = [], count = 0) {
-  if (s2 === s1) return true
+  if (s2 === s1) return true;
   if (count === s1.length) return false
   let lastLetter = s1.substring(s1.length - 1);
   let choppedWord = s1.substring(0, s1.length - 1)
@@ -29,7 +29,7 @@ function stringRotation(s1, s2, arr = [], count = 0) {
   return stringRotation(rotation, s2, arr, count)
 }
 
-// console.log(stringRotation('hello', 'ollhe'))
+
 
 module.exports = {
   isSubstring: isSubstring,

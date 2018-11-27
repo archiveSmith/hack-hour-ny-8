@@ -25,7 +25,37 @@
  */
 
 function balancedParens(input){
+	let queued = []
+	let openers = {
+	 '[': ']',
+	 '{': '}',
+	 '(': ')'
+	};
 
+	let closers = {
+		']' : 0,
+		'}': 0,
+		')': 0
+	}
+
+	for(let i = 0 ; i < input.length; i++){
+		if(openers[input[i]]){
+			queued.push(input[i]);
+		}else if(closers.hasOwnProperty(input[i])){
+			 if(input[i] === openers[queued[queued.length - 1]]){
+			 	queued.pop();
+			}else{
+				return false;
+			}
+		}
+	}
+	if(queued.length !== 0) return false
+	return true
 }
+
+
+
+
+//console.log('x: ',balancedParens(')('))
 
 module.exports = balancedParens;
