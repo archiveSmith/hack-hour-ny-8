@@ -24,8 +24,19 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
+  if (input.split('').length % 2 !== 0) {
+    return false;
+  }
 
+  const splitInput = input.split('');
+  splitInput.forEach((char, idx) => {
+    if (char !== splitInput[splitInput.length - 1 - idx]) {
+      return false;
+    }
+  });
+
+  return true;
 }
 
 module.exports = balancedParens;
