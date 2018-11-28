@@ -18,7 +18,25 @@
  */
 
 function romanNumeral(n) {
+    const mapping = [
+        [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+    ];
+    let str = '';
 
+    for (let i = 0; i < mapping.length; i++) {
+        const [val, char] = mapping[i];
+
+        if (n >= val) {
+            while (n >= val) {
+                n -= val;
+                str += char;
+            }
+        }
+    }
+
+    return str;
 }
+
+console.log(romanNumeral(8));
 
 module.exports = romanNumeral;
