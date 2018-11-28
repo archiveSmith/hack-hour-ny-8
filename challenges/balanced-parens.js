@@ -24,6 +24,7 @@
  *
  */
 
+<<<<<<< HEAD
 
 function balancedParens(input){
     let stack = [];
@@ -49,4 +50,10 @@ console.log(balancedParens('('));
 console.log(balancedParens('[](){}'));
 console.log(balancedParens(' var hubble = function() { telescopes.awesome();'));
 
+=======
+function balancedParens(input){
+
+}
+
+>>>>>>> 6ef862c4b9946184d45e409af666b98428bff7e1
 module.exports = balancedParens;
