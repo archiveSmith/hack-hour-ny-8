@@ -9,7 +9,43 @@
  */
 
 function subsetSum(array, target) {
+    let answer = false;
+    let i = 0;
+    let currentLead = 0;
 
+    function comboTotal (arr) {
+        return arr.reduce((acc, val) => {return acc + val},0);
+    }
+
+    function recurse (arr, pointer, remain) {
+        if (pointer > arr.length) {
+          return;
+        }
+        
+        if (arr.length === 0) {
+          pointer += 1;
+          remain.pop();
+          arr = arr.concat(remain);
+          remain = [];
+          recurse(arr, pointer, remain);
+          return;
+        }
+        if (comboTotal(arr) + array[currentLead] === target) {
+          answer = true;
+          return;
+        }
+        remain.push(arr.pop());
+        console.log('calc', array[currentLead], arr, remain)
+        recurse(arr, pointer, remain);
+    }
+   
+    while (currentLead < array.length) {
+        recurse(array.slice(currentLead+1), pointer = 0, remain = []);
+        currentLead += 1;
+    }
+    
+    return answer;
 }
+
 
 module.exports = subsetSum;
