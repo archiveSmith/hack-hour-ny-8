@@ -14,7 +14,18 @@
  */
 
 function binToDec(binary) {
-
+    let r=0;
+    for(let i=0; i<binary.length; i++) {
+        if(r === 0) {
+            r = r | parseInt(binary[i]);
+        } else {
+            r = r << 1;
+            r = r | parseInt(binary[i]);
+        }
+    }
+    return r;
 }
+
+// console.log(binToDec('0101'));
 
 module.exports = binToDec;
