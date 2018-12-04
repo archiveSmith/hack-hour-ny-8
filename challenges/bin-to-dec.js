@@ -14,7 +14,16 @@
  */
 
 function binToDec(binary) {
-
+let reverseB = binary.split('').reverse();
+let num = 0;
+for(let i = 1,j = 1; i <= reverseB.length; i++, j*=2){
+	if(reverseB[i-1] === '1'){
+		num += j
+	}
 }
+return num;
+}
+
+console.log(binToDec('1000'))
 
 module.exports = binToDec;
