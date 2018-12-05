@@ -24,7 +24,13 @@ function subsetSum(array, target) {
   
     let tmp = array.slice();
     tmp.pop();
-    return subsetSum(tmp, target) || subsetSum(tmp, target-array[array.length-1]); 
+    // if(target < 0 && array[array.length-1] < 0) {
+        return subsetSum(tmp, target) || subsetSum(tmp, target-array[array.length-1]); 
+    // } else {
+    //     return subsetSum(tmp, target) || subsetSum(tmp, target-array[array.length-1]); 
+    // }
 }
+
+console.log(subsetSum([-5, -2, -1, -3], -5));
 
 module.exports = subsetSum;
