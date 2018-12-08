@@ -19,15 +19,12 @@ function reverseLinkedList(head) {
     let next = null;
 
     while(current!== null){
-        if(current.next.next === null){
            next = current.next;
            current.nex = prev;
            prev = current;
            current = next;
         }
-
         head = prev;
-    }
 
 }
 
