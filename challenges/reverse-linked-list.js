@@ -20,7 +20,7 @@ function reverseLinkedList(head) {
 
     while(current!== null){
            next = current.next;
-           current.nex = prev;
+           current.next = prev;
            prev = current;
            current = next;
         }
