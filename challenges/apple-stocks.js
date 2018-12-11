@@ -12,7 +12,24 @@
  *  Return 0 if no profit is possible OR if input is invalid.
  */
 
-function bestProfit(stock_prices_yesterday) {
+function bestProfit (stock_prices_yesterday) {
+
+    let purchasePrice = Infinity;
+    let profit = -Infinity;
+    const len = stock_prices_yesterday.length;
+    const arr = stock_prices_yesterday;
+
+    for (let i = 0; i < len; i++ ) {
+        if (arr[i] < purchasePrice) {
+            purchasePrice = arr[i];
+            continue;
+        }
+        if (arr[i] - purchasePrice > profit) {
+            profit = arr[i] - purchasePrice
+        }
+    }
+
+    return profit;
 
 }
 
