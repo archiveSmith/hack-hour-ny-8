@@ -26,7 +26,7 @@ function rotateGrid(grid, n) {
             result[j][n-i-1] = grid[i][j];
         }
     }
-    // console.log(result);
+    return result;
 }
 
 module.exports = rotateGrid;
