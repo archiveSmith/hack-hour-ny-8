@@ -25,6 +25,25 @@
  */
 
 function balancedParens(input){
+  let bracketsObj = {
+    '(': ')',
+    '{': '}',
+    '[': ']',
+    ')': '(',
+    '}': '{',
+    ']': '['
+  }
+  let openers = ['(','{','['];
+  let closers = [')','}',']'];
+  let stack = [];
+
+  for (let i = 0; i < input.length; i++) {
+    if (stack.length > input.length - i) return false;
+    if (stack.length === 0 && closers.includes(input[i])) return false;
+    if (stack.length !== 0 && closers.includes(input[i]) && bracketsObj[stack[stack.length - 1]] === input[i]) stack.pop();
+    if (openers.includes(input[i])) stack.push(input[i]);
+  }
+  return (stack.length === 0);
 
 }
 
