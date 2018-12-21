@@ -8,7 +8,14 @@
  */
 
 function gcd(a, b) {
-
+  const divisors = [];
+  const highestFactor = a > b ? a : b;
+  for (let i = 1; i <= Math.ceil(highestFactor / 2); i += 1) {
+    if (a % i === 0 && b % i === 0) {
+      divisors.push(i);
+    }
+  }
+  return divisors.pop();
 }
 
 module.exports = gcd;
