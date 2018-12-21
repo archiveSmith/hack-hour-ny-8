@@ -82,7 +82,7 @@ function romanNumeral(n) {
 
   while (n >= 1 && n <= 3) {
     nString += 'I';
-    n--;
+    n --;
   }
 
   return nString;
