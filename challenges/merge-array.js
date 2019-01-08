@@ -14,7 +14,11 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+    let combined = arr1.concat(arr2);
+    combined.sort(function(a,b){ return a - b})
+    return combined
 }
+
+console.log(mergeArrays([3,4,6,10,11,15,21],[1,5,8,12,14,19]))
 
 module.exports = mergeArrays;

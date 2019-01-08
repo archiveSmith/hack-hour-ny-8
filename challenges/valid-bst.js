@@ -12,8 +12,71 @@ function BinaryTree(val) {
     this.right = null;
 }
 
+function insert(val, head) {
+    let current = head;
+    const newNode = new BinaryTree(val);
+
+    while(current !== null){
+
+        if(val > current.value){
+            if(current.right === null){
+                current.right = newNode
+                break
+            }else{
+                current = current.right;
+            }
+        }else{
+            if(current.left === null){
+              current.left = newNode
+                break
+            }else{
+                current = current.left;
+            }
+        }
+    }
+}
+
+
 function validBST(tree) {
+    const current = tree
+    if(current !== null){
+        if(current.left !== null){
+            if(current.left.value < current.value){
+                validBST(current.left)
+            }else{
+                return false
+            }
+        }else{
+            validBST(current.left)
+        }
+        
+
+        if(current.right !== null){
+            if(current.right.value > current.value){
+                validBST(current.right);
+            }else{
+                return false
+            }
+        }else{
+            validBST(current.right)
+        }
+
+    }else{
+        return true
+    }
 
 }
+
+
+const bst = new BinaryTree(10);
+// console.log(bst)
+
+insert(8,bst);
+insert(12,bst);
+
+
+// console.log(bst)
+
+console.log(validBST(bst))
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
