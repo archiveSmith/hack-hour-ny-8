@@ -16,6 +16,7 @@ const stocks = [100,200,150,250,340,500,200,345,643,432,324,546,654,321,123,212,
 
 
 function bestProfit(stock_prices_yesterday) {
+    if(!Array.isArray(stock_prices_yesterday)) return false
 
   let bigProfit = 0
 
@@ -27,7 +28,7 @@ function bestProfit(stock_prices_yesterday) {
       }
   }
 
-  return bigProfit
+
 }
 
 // console.log(bestProfit(stocks))
