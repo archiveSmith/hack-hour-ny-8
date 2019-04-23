@@ -7,13 +7,28 @@
  */
 
 /**
-  * example:
-  * var result = anagrams('abc');
-  * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
-  */
+ * example:
+ * var result = anagrams('abc');
+ * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+ */
 
-function anagrams(string) {
-
+function anagrams(string, current = "", anagramArray = []) {
+  // Loop through string
+  // Add individual character to current permut
+  // Recurse with substring, with current character missing
+  //
+  if (string === "") {
+    anagramArray.push(current);
+  }
+  for (let charInd = 0; charInd < string.length; char++) {
+    current += string[charInd];
+    anagrams(
+      string.slice(0, charInd) + string.slice(charInd + 1),
+      current.slice(0),
+      anagramArray
+    );
+  }
+  return anagrams;
 }
 
 module.exports = anagrams;

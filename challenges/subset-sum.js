@@ -8,8 +8,17 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-
+function subsetSum(array, target) {    
+    // Jonathan Cespedes' solution
+    // If target has been successfully decremented to 0, return true. Negative numbers are truthy.
+    if (!target) return true;
+    // If the array has no elements, return false
+    if (!array.length) return false;
+    // Split recursion / branched recursion. Both take away an element from the array, one decrements target
+    return subsetSum(array.slice(1), target-array[0]) || subsetSum(array.slice(1), target);
 }
+
+// console.log(subsetSum([3, 0, 6, -1], 5));
+// console.log([1, 2, 3, 4].reduce((total, num)=> total+num));
 
 module.exports = subsetSum;

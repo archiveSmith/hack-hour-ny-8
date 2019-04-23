@@ -10,7 +10,25 @@
  */
 
 function getAllProducts(array) {
-
+  const productArray = [];
+  let zeroCount = 0;
+  // get multiple of all numbers
+  let totalProduct = array.reduce((product, number) => {
+    // if 0 in array, ignore and push into zeroes array
+    if (number === 0) ++zeroCount;
+    else product *= number;
+    return product;
+  }, 1);
+  // With more than one 0, the answer will always be 0, or zero plus remaining multiple
+  if (zeroCount > 1 ) return [0];
+  else if (zeroCount === 1) return [totalProduct, 0];
+  // With a single zero, the answer will be the multiple of the remaning nums
+  else {
+    array.forEach(number => {
+      productArray.push(totalProduct / number);
+    });
+  }
+  return productArray;
 }
 
 module.exports = getAllProducts;

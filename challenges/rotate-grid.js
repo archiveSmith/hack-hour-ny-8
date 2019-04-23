@@ -16,8 +16,24 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
+ /*
+ *  [0][0] to [0][n]
+ * [0][1] to [n][1]
+ * [0][n] to [n][n]
+ * [1][0] to [0][1]
+ * [1][1] to [1][1]
+ * [1][n] to [n][1]
+ * Loop from 0 to midpoint of n
+ * for each iteration:
+ *  - increase location by one point, if larger than max, reset to 0
+ */
 
+function rotateGrid(grid, n) {
+    // [(0,0), (0,1), (0,2)]
+    // [(1,0), (1,1), (1,2)]
+    // [(2,0), (2,1), (2,2)]
+    // Have row and column indices
+    // 
 }
 
 module.exports = rotateGrid;

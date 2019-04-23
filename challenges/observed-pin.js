@@ -26,8 +26,8 @@ never finally lock the system or sound the alarm. That's why we can try out all 
 
 Can you help us to find all those variations? It would be nice to have a function, that returns an array 
 of all variations for an observed PIN with a length of 1 to 8 digits. We could name the function getPINs. 
-But please note that all PINs, the observed one and also the results, must be strings, because of 
-potentially leading '0's. Don't worry about the order of the array.
+But please note that all PINs, the observed one  also the results, must be strings, because of 
+potentially leading '0's. Don't worry about the orandder of the array.
 
 Detective, we count on you!
 
@@ -39,12 +39,18 @@ expectations = {
 
 */
 
-
-
-
-function getPINs(observed) {
-
+function getPINs(pin, sequence = "", result = []) {
+  if (pin.length === 0) {
+    result.push(sequence);
+    return;
+  }
+  for (let i = 0; i < pin.length; i++) {
+    sequence += pin[i];
+    getPINs(pin.substring(i, 1), sequence, result);
+  }
+  return result;
 }
 
+console.log(getPINs("11"));
 
-module.exports = getPINs
+module.exports = getPINs;

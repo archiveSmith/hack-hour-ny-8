@@ -13,8 +13,33 @@ function BinaryTree(value) {
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function superbalanced(tree, left = 0, right = 0) {
+  // increment for every right step (different variable)
+  if (tree.right) {
+    ++right;
+    superbalanced(tree.right, left, right);
+  }
+  // increment for every left step (different variable)
+  if (tree.left) {
+    ++left;
+    superbalanced(tree.left, left, right);
+  }
+  // compare the difference between the two (absolute value), if they're greater than 1
+  if (tree.right === null && tree.left === null) {
+    return;
+  }
+  console.log (Math.abs(left - right));
+  return (Math.abs(left - right) <=1)
 }
+
+const binTree = new BinaryTree(7);
+binTree.right = new BinaryTree(8);
+binTree.left = new BinaryTree(6);
+binTree.right.right = new BinaryTree(9);
+binTree.right.left = new BinaryTree(6);
+binTree.right.right.right = new BinaryTree(10);
+
+console.log(binTree);
+console.log(superbalanced(binTree));
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};

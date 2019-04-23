@@ -17,14 +17,15 @@ function Node(val) {
 Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
-  
+  this.tail.next = new Node(val);
+  this.tail.next.prev = this.tail;
+  this.tail.next.next = null;
+  this.tail = this.tail.next;
 };
 
 /*
 Removes the first node with the inputted value
  */
-LinkedList.prototype.remove = function(val) {
-  
-};
+LinkedList.prototype.remove = function(val) {};
 
 module.exports = LinkedList;

@@ -1,5 +1,5 @@
 /**
- * I have an array where every number in the range 1...n appears once except for 
+ * I have an array where every number in the range 1...n appears once except for
  * one number which appears twice.
  *
  * Write a function for finding the number that appears twice.
@@ -11,7 +11,12 @@
  */
 
 function repeatNumbers(array) {
-
+  // Add each number as a key to an object, if it exists, return that number
+  const numCount = {};
+  for (let num of array) {
+    if (numCount[num]) return num;
+    else numCount[num] = true;
+  }
 }
 
 module.exports = repeatNumbers;
