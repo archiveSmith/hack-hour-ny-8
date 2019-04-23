@@ -23,15 +23,15 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   let current = head;
-  let queue = [];
-  while(current !== null) {
-    queue.push(current);
+  let list = [];
+  while (current !== null) {
+    list.push(current);
     current = current.next;
   }
-  return queue[queue.length-k];
+  return list[list.length - k];
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node: Node, kthToLastNode: kthToLastNode };
 
 // const a = new Node('A');
 // const b = new Node('B');
